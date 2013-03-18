@@ -1,0 +1,14 @@
+C:\Users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\bin\Release\TELMAGEN.exe.config
+C:\Users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\bin\Release\TELMAGEN.exe
+C:\Users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\bin\Release\TELMAGEN.pdb
+C:\Users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Release\TELMAGEN.Main.resources
+C:\Users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Release\TELMAGEN.NewProject.resources
+C:\Users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Release\TELMAGEN.Properties.Resources.resources
+C:\Users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Release\TELMAGEN.Slideshow.resources
+C:\Users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Release\TELMAGEN.csproj.GenerateResource.Cache
+C:\Users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Release\TELMAGEN.exe
+C:\Users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Release\TELMAGEN.pdb
+C:\Users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Release\TELMAGEN.csprojResolveAssemblyReference.cache
+D:\gigator\TELMAGEN\TELMAGEN\bin\Release\TELMAGEN.exe.config
+D:\gigator\TELMAGEN\TELMAGEN\obj\Release\TELMAGEN.exe
+D:\gigator\TELMAGEN\TELMAGEN\obj\Release\TELMAGEN.pdb

@@ -1,0 +1,11 @@
+c:\users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\bin\Debug\TELMAGEN.exe.config
+c:\users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\bin\Debug\TELMAGEN.exe
+c:\users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\bin\Debug\TELMAGEN.pdb
+c:\users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Debug\TELMAGEN.Main.resources
+c:\users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Debug\TELMAGEN.Properties.Resources.resources
+c:\users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Debug\TELMAGEN.csproj.GenerateResource.Cache
+c:\users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Debug\TELMAGEN.exe
+c:\users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Debug\TELMAGEN.pdb
+c:\users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Debug\TELMAGEN.csprojResolveAssemblyReference.cache
+c:\users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Debug\TELMAGEN.NewProject.resources
+C:\Users\torrancejones\documents\visual studio 2012\Projects\TELMAGEN\TELMAGEN\obj\Debug\TELMAGEN.Slideshow.resources
