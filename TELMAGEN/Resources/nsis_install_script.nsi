@@ -32,7 +32,7 @@
 #########################################################################################
 !define NAME "TELMAGEN"
 !define COMPANY "Torrance Jones"
-!define URL "http://www.itsmetor.com/"
+!define URL "http://www.itsmetor.com/wp/"
 !define COPYRIGHT "(c)2013 Torrance Jones"
 
 Name ${NAME}
