@@ -9,10 +9,8 @@ using System.Windows.Forms;
 
 using TELMAGEN.IO;
 
-namespace TELMAGEN
+namespace TELMAGEN.GUI
 {
-    
-
     public partial class NewProject : Form
     {
         public NewProject()

@@ -1,4 +1,4 @@
-﻿namespace TELMAGEN
+﻿namespace TELMAGEN.GUI
 {
     partial class NewProject
     {

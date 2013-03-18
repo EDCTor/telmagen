@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using TELMAGEN.IO;
+using TELMAGEN.GUI;
 
 namespace TELMAGEN
 {
@@ -407,7 +408,18 @@ namespace TELMAGEN
                 slideshowToolStripMenuItem.Enabled = true;
             }
         }
-
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (About form = new About())
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    // nothing to do yet
+                }
+            }
+        }
         #endregion
+
+        
     }
 }

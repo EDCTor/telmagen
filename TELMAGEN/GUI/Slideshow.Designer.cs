@@ -1,4 +1,4 @@
-﻿namespace TELMAGEN
+﻿namespace TELMAGEN.GUI
 {
     partial class Slideshow
     {
@@ -167,7 +167,7 @@
             this.Controls.Add(this.pbcanvas);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Slideshow";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Slideshow";
             ((System.ComponentModel.ISupportInitialize)(this.pbcanvas)).EndInit();
             this.ResumeLayout(false);
