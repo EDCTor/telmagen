@@ -38,8 +38,21 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.slideshowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dlgOpenFile = new System.Windows.Forms.OpenFileDialog();
             this.grpColors = new System.Windows.Forms.GroupBox();
+            this.btnSetLabels = new System.Windows.Forms.Button();
+            this.rbGrey = new System.Windows.Forms.RadioButton();
+            this.lblLtPink = new System.Windows.Forms.Label();
+            this.rbWhite = new System.Windows.Forms.RadioButton();
+            this.lblGrey = new System.Windows.Forms.Label();
+            this.rbBlack = new System.Windows.Forms.RadioButton();
+            this.lblWhite = new System.Windows.Forms.Label();
+            this.rbLtPink = new System.Windows.Forms.RadioButton();
+            this.lblLtGreen = new System.Windows.Forms.Label();
+            this.rbLtGreen = new System.Windows.Forms.RadioButton();
+            this.lblBlack = new System.Windows.Forms.Label();
             this.rbYellow = new System.Windows.Forms.RadioButton();
             this.rbPurple = new System.Windows.Forms.RadioButton();
             this.rbOrange = new System.Windows.Forms.RadioButton();
@@ -53,7 +66,7 @@
             this.lblPink = new System.Windows.Forms.Label();
             this.lblLtBlue = new System.Windows.Forms.Label();
             this.lblGreen = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblYellow = new System.Windows.Forms.Label();
             this.lblRed = new System.Windows.Forms.Label();
             this.lblBlue = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
@@ -62,8 +75,8 @@
             this.lblPosition = new System.Windows.Forms.Label();
             this.btnClearPoints = new System.Windows.Forms.Button();
             this.pbcanvas = new System.Windows.Forms.PictureBox();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFirst = new System.Windows.Forms.Button();
+            this.btnLast = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.grpColors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbcanvas)).BeginInit();
@@ -77,7 +90,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(876, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(788, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -144,6 +157,21 @@
             this.slideshowToolStripMenuItem.Text = "&Slideshow";
             this.slideshowToolStripMenuItem.Click += new System.EventHandler(this.slideshowToolStripMenuItem_Click);
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // dlgOpenFile
             // 
             this.dlgOpenFile.Filter = "Project Files (*.xml)|*.xml";
@@ -151,6 +179,17 @@
             // grpColors
             // 
             this.grpColors.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpColors.Controls.Add(this.btnSetLabels);
+            this.grpColors.Controls.Add(this.rbGrey);
+            this.grpColors.Controls.Add(this.lblLtPink);
+            this.grpColors.Controls.Add(this.rbWhite);
+            this.grpColors.Controls.Add(this.lblGrey);
+            this.grpColors.Controls.Add(this.rbBlack);
+            this.grpColors.Controls.Add(this.lblWhite);
+            this.grpColors.Controls.Add(this.rbLtPink);
+            this.grpColors.Controls.Add(this.lblLtGreen);
+            this.grpColors.Controls.Add(this.rbLtGreen);
+            this.grpColors.Controls.Add(this.lblBlack);
             this.grpColors.Controls.Add(this.rbYellow);
             this.grpColors.Controls.Add(this.rbPurple);
             this.grpColors.Controls.Add(this.rbOrange);
@@ -164,24 +203,144 @@
             this.grpColors.Controls.Add(this.lblPink);
             this.grpColors.Controls.Add(this.lblLtBlue);
             this.grpColors.Controls.Add(this.lblGreen);
-            this.grpColors.Controls.Add(this.label3);
+            this.grpColors.Controls.Add(this.lblYellow);
             this.grpColors.Controls.Add(this.lblRed);
             this.grpColors.Controls.Add(this.lblBlue);
-            this.grpColors.Location = new System.Drawing.Point(804, 27);
+            this.grpColors.Location = new System.Drawing.Point(690, 27);
             this.grpColors.Name = "grpColors";
-            this.grpColors.Size = new System.Drawing.Size(68, 132);
+            this.grpColors.Size = new System.Drawing.Size(94, 218);
             this.grpColors.TabIndex = 2;
             this.grpColors.TabStop = false;
             this.grpColors.Text = "Colors";
             // 
+            // btnSetLabels
+            // 
+            this.btnSetLabels.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSetLabels.Location = new System.Drawing.Point(5, 192);
+            this.btnSetLabels.Name = "btnSetLabels";
+            this.btnSetLabels.Size = new System.Drawing.Size(68, 20);
+            this.btnSetLabels.TabIndex = 13;
+            this.btnSetLabels.Text = "Set Labels";
+            this.btnSetLabels.UseVisualStyleBackColor = true;
+            this.btnSetLabels.Click += new System.EventHandler(this.btnSetLabels_Click);
+            this.btnSetLabels.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_KeyDown);
+            // 
+            // rbGrey
+            // 
+            this.rbGrey.AutoSize = true;
+            this.rbGrey.Location = new System.Drawing.Point(5, 146);
+            this.rbGrey.Name = "rbGrey";
+            this.rbGrey.Size = new System.Drawing.Size(14, 13);
+            this.rbGrey.TabIndex = 10;
+            this.rbGrey.UseVisualStyleBackColor = true;
+            this.rbGrey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbGrey.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
+            // 
+            // lblLtPink
+            // 
+            this.lblLtPink.AutoSize = true;
+            this.lblLtPink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.lblLtPink.Location = new System.Drawing.Point(22, 133);
+            this.lblLtPink.Name = "lblLtPink";
+            this.lblLtPink.Size = new System.Drawing.Size(43, 13);
+            this.lblLtPink.TabIndex = 24;
+            this.lblLtPink.Text = "Lt. Pink";
+            // 
+            // rbWhite
+            // 
+            this.rbWhite.AutoSize = true;
+            this.rbWhite.Location = new System.Drawing.Point(5, 159);
+            this.rbWhite.Name = "rbWhite";
+            this.rbWhite.Size = new System.Drawing.Size(14, 13);
+            this.rbWhite.TabIndex = 11;
+            this.rbWhite.UseVisualStyleBackColor = true;
+            this.rbWhite.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbWhite.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
+            // 
+            // lblGrey
+            // 
+            this.lblGrey.AutoSize = true;
+            this.lblGrey.BackColor = System.Drawing.Color.Gray;
+            this.lblGrey.Location = new System.Drawing.Point(22, 146);
+            this.lblGrey.Name = "lblGrey";
+            this.lblGrey.Size = new System.Drawing.Size(29, 13);
+            this.lblGrey.TabIndex = 22;
+            this.lblGrey.Text = "Grey";
+            // 
+            // rbBlack
+            // 
+            this.rbBlack.AutoSize = true;
+            this.rbBlack.Location = new System.Drawing.Point(5, 172);
+            this.rbBlack.Name = "rbBlack";
+            this.rbBlack.Size = new System.Drawing.Size(14, 13);
+            this.rbBlack.TabIndex = 12;
+            this.rbBlack.UseVisualStyleBackColor = true;
+            this.rbBlack.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbBlack.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
+            // 
+            // lblWhite
+            // 
+            this.lblWhite.AutoSize = true;
+            this.lblWhite.BackColor = System.Drawing.Color.White;
+            this.lblWhite.Location = new System.Drawing.Point(22, 159);
+            this.lblWhite.Name = "lblWhite";
+            this.lblWhite.Size = new System.Drawing.Size(35, 13);
+            this.lblWhite.TabIndex = 20;
+            this.lblWhite.Text = "White";
+            // 
+            // rbLtPink
+            // 
+            this.rbLtPink.AutoSize = true;
+            this.rbLtPink.Location = new System.Drawing.Point(5, 133);
+            this.rbLtPink.Name = "rbLtPink";
+            this.rbLtPink.Size = new System.Drawing.Size(14, 13);
+            this.rbLtPink.TabIndex = 9;
+            this.rbLtPink.UseVisualStyleBackColor = true;
+            this.rbLtPink.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbLtPink.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
+            // 
+            // lblLtGreen
+            // 
+            this.lblLtGreen.AutoSize = true;
+            this.lblLtGreen.BackColor = System.Drawing.Color.Lime;
+            this.lblLtGreen.Location = new System.Drawing.Point(22, 120);
+            this.lblLtGreen.Name = "lblLtGreen";
+            this.lblLtGreen.Size = new System.Drawing.Size(51, 13);
+            this.lblLtGreen.TabIndex = 18;
+            this.lblLtGreen.Text = "Lt. Green";
+            // 
+            // rbLtGreen
+            // 
+            this.rbLtGreen.AutoSize = true;
+            this.rbLtGreen.Location = new System.Drawing.Point(5, 120);
+            this.rbLtGreen.Name = "rbLtGreen";
+            this.rbLtGreen.Size = new System.Drawing.Size(14, 13);
+            this.rbLtGreen.TabIndex = 8;
+            this.rbLtGreen.UseVisualStyleBackColor = true;
+            this.rbLtGreen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbLtGreen.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
+            // 
+            // lblBlack
+            // 
+            this.lblBlack.AutoSize = true;
+            this.lblBlack.BackColor = System.Drawing.Color.Black;
+            this.lblBlack.ForeColor = System.Drawing.Color.White;
+            this.lblBlack.Location = new System.Drawing.Point(22, 172);
+            this.lblBlack.Name = "lblBlack";
+            this.lblBlack.Size = new System.Drawing.Size(34, 13);
+            this.lblBlack.TabIndex = 16;
+            this.lblBlack.Text = "Black";
+            // 
             // rbYellow
             // 
             this.rbYellow.AutoSize = true;
-            this.rbYellow.Location = new System.Drawing.Point(5, 107);
+            this.rbYellow.Location = new System.Drawing.Point(5, 55);
             this.rbYellow.Name = "rbYellow";
             this.rbYellow.Size = new System.Drawing.Size(14, 13);
-            this.rbYellow.TabIndex = 15;
+            this.rbYellow.TabIndex = 3;
             this.rbYellow.UseVisualStyleBackColor = true;
+            this.rbYellow.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbYellow.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
             // 
             // rbPurple
             // 
@@ -189,8 +348,10 @@
             this.rbPurple.Location = new System.Drawing.Point(5, 94);
             this.rbPurple.Name = "rbPurple";
             this.rbPurple.Size = new System.Drawing.Size(14, 13);
-            this.rbPurple.TabIndex = 14;
+            this.rbPurple.TabIndex = 6;
             this.rbPurple.UseVisualStyleBackColor = true;
+            this.rbPurple.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbPurple.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
             // 
             // rbOrange
             // 
@@ -198,8 +359,10 @@
             this.rbOrange.Location = new System.Drawing.Point(5, 81);
             this.rbOrange.Name = "rbOrange";
             this.rbOrange.Size = new System.Drawing.Size(14, 13);
-            this.rbOrange.TabIndex = 13;
+            this.rbOrange.TabIndex = 5;
             this.rbOrange.UseVisualStyleBackColor = true;
+            this.rbOrange.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbOrange.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
             // 
             // rbPink
             // 
@@ -207,17 +370,21 @@
             this.rbPink.Location = new System.Drawing.Point(5, 68);
             this.rbPink.Name = "rbPink";
             this.rbPink.Size = new System.Drawing.Size(14, 13);
-            this.rbPink.TabIndex = 12;
+            this.rbPink.TabIndex = 4;
             this.rbPink.UseVisualStyleBackColor = true;
+            this.rbPink.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbPink.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
             // 
             // rbLtBlue
             // 
             this.rbLtBlue.AutoSize = true;
-            this.rbLtBlue.Location = new System.Drawing.Point(5, 55);
+            this.rbLtBlue.Location = new System.Drawing.Point(5, 107);
             this.rbLtBlue.Name = "rbLtBlue";
             this.rbLtBlue.Size = new System.Drawing.Size(14, 13);
-            this.rbLtBlue.TabIndex = 11;
+            this.rbLtBlue.TabIndex = 7;
             this.rbLtBlue.UseVisualStyleBackColor = true;
+            this.rbLtBlue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbLtBlue.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
             // 
             // rbGreen
             // 
@@ -225,8 +392,10 @@
             this.rbGreen.Location = new System.Drawing.Point(5, 42);
             this.rbGreen.Name = "rbGreen";
             this.rbGreen.Size = new System.Drawing.Size(14, 13);
-            this.rbGreen.TabIndex = 10;
+            this.rbGreen.TabIndex = 2;
             this.rbGreen.UseVisualStyleBackColor = true;
+            this.rbGreen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbGreen.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
             // 
             // rbRed
             // 
@@ -234,8 +403,10 @@
             this.rbRed.Location = new System.Drawing.Point(5, 29);
             this.rbRed.Name = "rbRed";
             this.rbRed.Size = new System.Drawing.Size(14, 13);
-            this.rbRed.TabIndex = 9;
+            this.rbRed.TabIndex = 1;
             this.rbRed.UseVisualStyleBackColor = true;
+            this.rbRed.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbRed.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
             // 
             // rbBlue
             // 
@@ -244,16 +415,18 @@
             this.rbBlue.Location = new System.Drawing.Point(5, 16);
             this.rbBlue.Name = "rbBlue";
             this.rbBlue.Size = new System.Drawing.Size(14, 13);
-            this.rbBlue.TabIndex = 8;
+            this.rbBlue.TabIndex = 0;
             this.rbBlue.TabStop = true;
             this.rbBlue.UseVisualStyleBackColor = true;
+            this.rbBlue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rb_KeyDown);
+            this.rbBlue.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.rb_PreviewKeyDown);
             // 
             // lblPurple
             // 
             this.lblPurple.AutoSize = true;
             this.lblPurple.BackColor = System.Drawing.Color.Purple;
             this.lblPurple.ForeColor = System.Drawing.Color.White;
-            this.lblPurple.Location = new System.Drawing.Point(21, 94);
+            this.lblPurple.Location = new System.Drawing.Point(22, 94);
             this.lblPurple.Name = "lblPurple";
             this.lblPurple.Size = new System.Drawing.Size(37, 13);
             this.lblPurple.TabIndex = 7;
@@ -263,7 +436,7 @@
             // 
             this.lblOrange.AutoSize = true;
             this.lblOrange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblOrange.Location = new System.Drawing.Point(21, 81);
+            this.lblOrange.Location = new System.Drawing.Point(22, 81);
             this.lblOrange.Name = "lblOrange";
             this.lblOrange.Size = new System.Drawing.Size(42, 13);
             this.lblOrange.TabIndex = 6;
@@ -273,7 +446,7 @@
             // 
             this.lblPink.AutoSize = true;
             this.lblPink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.lblPink.Location = new System.Drawing.Point(21, 68);
+            this.lblPink.Location = new System.Drawing.Point(22, 68);
             this.lblPink.Name = "lblPink";
             this.lblPink.Size = new System.Drawing.Size(28, 13);
             this.lblPink.TabIndex = 5;
@@ -283,7 +456,7 @@
             // 
             this.lblLtBlue.AutoSize = true;
             this.lblLtBlue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lblLtBlue.Location = new System.Drawing.Point(21, 55);
+            this.lblLtBlue.Location = new System.Drawing.Point(22, 107);
             this.lblLtBlue.Name = "lblLtBlue";
             this.lblLtBlue.Size = new System.Drawing.Size(43, 13);
             this.lblLtBlue.TabIndex = 4;
@@ -300,15 +473,15 @@
             this.lblGreen.TabIndex = 3;
             this.lblGreen.Text = "Green";
             // 
-            // label3
+            // lblYellow
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Yellow;
-            this.label3.Location = new System.Drawing.Point(20, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Yellow";
+            this.lblYellow.AutoSize = true;
+            this.lblYellow.BackColor = System.Drawing.Color.Yellow;
+            this.lblYellow.Location = new System.Drawing.Point(22, 55);
+            this.lblYellow.Name = "lblYellow";
+            this.lblYellow.Size = new System.Drawing.Size(38, 13);
+            this.lblYellow.TabIndex = 2;
+            this.lblYellow.Text = "Yellow";
             // 
             // lblRed
             // 
@@ -333,9 +506,9 @@
             // 
             // lblTime
             // 
-            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(806, 162);
+            this.lblTime.Location = new System.Drawing.Point(595, 500);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(34, 13);
             this.lblTime.TabIndex = 3;
@@ -343,31 +516,35 @@
             // 
             // btnNext
             // 
-            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(840, 178);
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNext.Location = new System.Drawing.Point(502, 495);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(32, 23);
-            this.btnNext.TabIndex = 4;
+            this.btnNext.TabIndex = 16;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.btnNext.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_KeyDown);
+            this.btnNext.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.bt_PreviewKeyDown);
             // 
             // btnBack
             // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.Location = new System.Drawing.Point(808, 178);
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.Location = new System.Drawing.Point(470, 495);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(32, 23);
-            this.btnBack.TabIndex = 5;
+            this.btnBack.TabIndex = 15;
             this.btnBack.Text = "<";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_KeyDown);
+            this.btnBack.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.bt_PreviewKeyDown);
             // 
             // lblPosition
             // 
-            this.lblPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(806, 204);
+            this.lblPosition.Location = new System.Drawing.Point(665, 500);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(34, 13);
             this.lblPosition.TabIndex = 6;
@@ -376,13 +553,14 @@
             // btnClearPoints
             // 
             this.btnClearPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClearPoints.Location = new System.Drawing.Point(804, 497);
+            this.btnClearPoints.Location = new System.Drawing.Point(716, 494);
             this.btnClearPoints.Name = "btnClearPoints";
-            this.btnClearPoints.Size = new System.Drawing.Size(68, 39);
-            this.btnClearPoints.TabIndex = 7;
-            this.btnClearPoints.Text = "Clear Points";
+            this.btnClearPoints.Size = new System.Drawing.Size(68, 26);
+            this.btnClearPoints.TabIndex = 18;
+            this.btnClearPoints.Text = "Clear";
             this.btnClearPoints.UseVisualStyleBackColor = true;
             this.btnClearPoints.Click += new System.EventHandler(this.btnClearPoints_Click);
+            this.btnClearPoints.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_KeyDown);
             // 
             // pbcanvas
             // 
@@ -393,32 +571,45 @@
             this.pbcanvas.InitialImage = null;
             this.pbcanvas.Location = new System.Drawing.Point(0, 27);
             this.pbcanvas.Name = "pbcanvas";
-            this.pbcanvas.Size = new System.Drawing.Size(802, 509);
+            this.pbcanvas.Size = new System.Drawing.Size(689, 461);
             this.pbcanvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbcanvas.TabIndex = 1;
             this.pbcanvas.TabStop = false;
             this.pbcanvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbcanvas_MouseUp);
             // 
-            // helpToolStripMenuItem
+            // btnFirst
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.btnFirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFirst.Location = new System.Drawing.Point(439, 495);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(32, 23);
+            this.btnFirst.TabIndex = 14;
+            this.btnFirst.Text = "|<";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            this.btnFirst.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_KeyDown);
+            this.btnFirst.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.bt_PreviewKeyDown);
             // 
-            // aboutToolStripMenuItem
+            // btnLast
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.btnLast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLast.Location = new System.Drawing.Point(533, 495);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(32, 23);
+            this.btnLast.TabIndex = 17;
+            this.btnLast.Text = ">|";
+            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
+            this.btnLast.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_KeyDown);
+            this.btnLast.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.bt_PreviewKeyDown);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 538);
+            this.ClientSize = new System.Drawing.Size(788, 527);
+            this.Controls.Add(this.btnLast);
+            this.Controls.Add(this.btnFirst);
             this.Controls.Add(this.btnClearPoints);
             this.Controls.Add(this.lblPosition);
             this.Controls.Add(this.btnBack);
@@ -431,6 +622,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "TELMAGEN";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.grpColors.ResumeLayout(false);
@@ -452,7 +644,7 @@
         private System.Windows.Forms.OpenFileDialog dlgOpenFile;
         private System.Windows.Forms.PictureBox pbcanvas;
         private System.Windows.Forms.GroupBox grpColors;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblYellow;
         private System.Windows.Forms.Label lblRed;
         private System.Windows.Forms.Label lblBlue;
         private System.Windows.Forms.Label lblGreen;
@@ -478,6 +670,19 @@
         private System.Windows.Forms.ToolStripMenuItem slideshowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Button btnFirst;
+        private System.Windows.Forms.Button btnLast;
+        private System.Windows.Forms.RadioButton rbGrey;
+        private System.Windows.Forms.Label lblLtPink;
+        private System.Windows.Forms.RadioButton rbWhite;
+        private System.Windows.Forms.Label lblGrey;
+        private System.Windows.Forms.RadioButton rbBlack;
+        private System.Windows.Forms.Label lblWhite;
+        private System.Windows.Forms.RadioButton rbLtPink;
+        private System.Windows.Forms.Label lblLtGreen;
+        private System.Windows.Forms.RadioButton rbLtGreen;
+        private System.Windows.Forms.Label lblBlack;
+        private System.Windows.Forms.Button btnSetLabels;
     }
 }
 

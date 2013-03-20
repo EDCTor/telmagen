@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Xml;
 using TELMAGEN.IO;
+using TELMAGEN.Library;
 
 namespace TELMAGEN
 {
@@ -29,17 +30,33 @@ namespace TELMAGEN
         private const string XML_COLOR = "COLOR";
         private const string XML_X = "X";
         private const string XML_Y = "Y";
+
+        private const string XML_COLOR_LABELS = "COLOR_LABELS";
+        private const string XML_RED_LABEL = "RED_LABEL";
+        private const string XML_BLUE_LABEL = "BLUE_LABEL";
+        private const string XML_GREEN_LABEL = "GREEN_LABEL";
+        private const string XML_YELLOW_LABEL = "YELLOW_LABEL";
+        private const string XML_PINK_LABEL = "PINK_LABEL";
+        private const string XML_ORANGE_LABEL = "ORANGE_LABEL";
+        private const string XML_PURPLE_LABEL = "PURPLE_LABEL";
+        private const string XML_LTGREEN_LABEL = "LTGREEN_LABEL";
+        private const string XML_LTPINK_LABEL = "LTPINK_LABEL";
+        private const string XML_LTBLUE_LABEL = "LTBLUE_LABEL";
+        private const string XML_GREY_LABEL = "GREY_LABEL";
+        private const string XML_WHITE_LABEL = "WHITE_LABEL";
+        private const string XML_BLACK_LABEL = "BLACK_LABEL";
         #endregion
 
         private string name = string.Empty;
         private int interval = 15;
         private string imagename = string.Empty;
         private Bitmap image = null;
+        private ColorLabel labels = new ColorLabel();
 
         public TTime[] TTimes = null;
 
         public TelmagenProject() { }
-        public TelmagenProject(string Name, int interval, string ImageName)
+        public TelmagenProject(string Name, int interval, string ImageName, ColorLabel labels)
         {
             if ((interval < 1) || (interval > 1440))
             {
@@ -48,10 +65,12 @@ namespace TELMAGEN
             if (string.IsNullOrEmpty(Name)) { throw new InvalidOperationException("Must have a Name"); }
             if (string.IsNullOrEmpty(ImageName)) { throw new InvalidOperationException("Must have an Image Name"); }
             if (!File.Exists(ImageName)) { throw new FileNotFoundException("File " + ImageName + " does not exist"); }
+            if (labels == null) { throw new InvalidOperationException("Must have a color label"); }
 
             this.name = Name;
             this.interval = interval;
-            
+            this.labels = labels;
+
             #region initialize the time periods
             List<TTime> items = new List<TTime>();
             int id = 0;
@@ -77,6 +96,7 @@ namespace TELMAGEN
             this.imagename = p.Name;
         }
 
+        #region public properties
         public string Name
         {
             get { return this.name; }
@@ -128,6 +148,7 @@ namespace TELMAGEN
                         xw.WriteElementString(XML_INTERVAL, this.Interval.ToString());
                         xw.WriteElementString(XML_IMAGENAME, this.ImageName);
 
+                        #region times
                         xw.WriteStartElement(XML_TTIMES);
                         if ((this.TTimes != null) && (this.TTimes.Length > 0))
                         {
@@ -156,6 +177,25 @@ namespace TELMAGEN
                             }
                         }
                         xw.WriteEndElement();
+                        #endregion
+                        
+                        #region color labels
+                        xw.WriteStartElement(XML_COLOR_LABELS);
+                        xw.WriteElementString(XML_RED_LABEL, this.labels.red);
+                        xw.WriteElementString(XML_BLUE_LABEL, this.labels.blue);
+                        xw.WriteElementString(XML_YELLOW_LABEL, this.labels.yellow);
+                        xw.WriteElementString(XML_GREEN_LABEL, this.labels.green);
+                        xw.WriteElementString(XML_PURPLE_LABEL, this.labels.purple);
+                        xw.WriteElementString(XML_PINK_LABEL, this.labels.pink);
+                        xw.WriteElementString(XML_ORANGE_LABEL, this.labels.orange);
+                        xw.WriteElementString(XML_LTBLUE_LABEL, this.labels.ltblue);
+                        xw.WriteElementString(XML_LTGREEN_LABEL, this.labels.ltgreen);
+                        xw.WriteElementString(XML_LTPINK_LABEL, this.labels.ltpink);
+                        xw.WriteElementString(XML_GREY_LABEL, this.labels.grey);
+                        xw.WriteElementString(XML_BLACK_LABEL, this.labels.black);
+                        xw.WriteElementString(XML_WHITE_LABEL, this.labels.white);
+                        xw.WriteEndElement();
+                        #endregion
 
                         // write the footer
                         xw.WriteEndElement();
@@ -189,6 +229,7 @@ namespace TELMAGEN
                 this.interval = i.Value;
                 this.imagename = node[XML_IMAGENAME].InnerText;
 
+                #region times
                 List<TTime> ttimes = new List<TTime>();
                 foreach (XmlNode ttime_node in node[XML_TTIMES].ChildNodes)
                 {
@@ -238,11 +279,41 @@ namespace TELMAGEN
                     }
                 }
                 this.TTimes = ttimes.ToArray();
+                #endregion
 
-                // get the image from disk
+                XmlNode color_labels = node[XML_COLOR_LABELS];
+                if (color_labels is XmlElement)
+                {
+                    this.labels.red = color_labels[XML_RED_LABEL].InnerText;
+                    this.labels.blue = color_labels[XML_BLUE_LABEL].InnerText;
+                    this.labels.green = color_labels[XML_GREEN_LABEL].InnerText;
+                    this.labels.yellow = color_labels[XML_YELLOW_LABEL].InnerText;
+                    this.labels.orange = color_labels[XML_ORANGE_LABEL].InnerText;
+                    this.labels.purple = color_labels[XML_PURPLE_LABEL].InnerText;
+                    this.labels.pink = color_labels[XML_PINK_LABEL].InnerText;
+                    this.labels.ltblue = color_labels[XML_LTBLUE_LABEL].InnerText;
+                    this.labels.ltgreen = color_labels[XML_LTGREEN_LABEL].InnerText;
+                    this.labels.ltpink = color_labels[XML_LTPINK_LABEL].InnerText;
+                    this.labels.grey = color_labels[XML_GREY_LABEL].InnerText;
+                    this.labels.white = color_labels[XML_WHITE_LABEL].InnerText;
+                    this.labels.black = color_labels[XML_BLACK_LABEL].InnerText;
+                }
 
             }
         }
+        public ColorLabel Labels
+        {
+            get
+            {
+                return this.labels;
+            }
+            set
+            {
+                this.labels = value;
+            }
+        }
+        #endregion
+        #region public methods
         public int GetFirstTTime()
         {
             if ((this.TTimes != null) && (this.TTimes.Length > 0))
@@ -336,8 +407,8 @@ namespace TELMAGEN
             int mapped_y = (display_y * actual_height) / display_height;
             return mapped_y;
         }
+        #endregion
 
-        
     }
 
     

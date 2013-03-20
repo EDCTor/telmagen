@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using TELMAGEN.IO;
+using TELMAGEN.Library;
 
 namespace TELMAGEN.GUI
 {
@@ -44,7 +45,28 @@ namespace TELMAGEN.GUI
                 return txtImageName.Text; 
             }
         }
+        public ColorLabel ColorLabel
+        {
+            get
+            {
+                ColorLabel c = new ColorLabel();
+                c.red = txtRed.Text;
+                c.blue = txtBlue.Text;
+                c.yellow = txtYellow.Text;
+                c.green = txtGreen.Text;
+                c.pink = txtPink.Text;
+                c.purple = txtPurple.Text;
+                c.orange = txtOrange.Text;
+                c.ltblue = txtLtBlue.Text;
+                c.ltgreen = txtGreen.Text;
+                c.ltpink = txtLtPink.Text;
+                c.grey = txtGrey.Text;
+                c.white = txtWhite.Text;
+                c.black = txtBlack.Text;
 
+                return c;
+            }
+        }
         private void btnOk_Click(object sender, EventArgs e)
         {
             #region data checks
