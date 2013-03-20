@@ -22,8 +22,8 @@
 ##
 #########################################################################################
 !define SOURCE "D:\gigator\TELMAGEN\TELMAGEN"
-!define FILENAME "TELMAGEN.1.0.0.1.Setup.exe"
-!define VERSION "1.0.0.1"
+!define FILENAME "TELMAGEN.1.0.0.2.Setup.exe"
+!define VERSION "1.0.0.2"
 !define BUILD_FOLDER "Builds"
 #########################################################################################	
 
