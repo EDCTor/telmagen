@@ -15,13 +15,24 @@
 
 #########################################################################################
 ## 
+## How to do a build
+##
+## Within VS > Project > Application - Set the version number 
+## Compile Telmagen.exe
+## Modify the NSI script to set the version number and installer exe name
+## Launch NSIS, load the NSI script and generate the installer
+##
+#########################################################################################
+
+#########################################################################################
+## 
 ## TESTING
 ##
 ## To test NSIS installer, you can manually set some of the values that the build script 
 ## bat does for you. Just uncomment the lines below and set as needed.
 ##
 #########################################################################################
-!define SOURCE "D:\gigator\TELMAGEN\TELMAGEN"
+!define SOURCE "C:\gigator\TELMAGEN\TELMAGEN"
 !define FILENAME "TELMAGEN.1.0.0.2.Setup.exe"
 !define VERSION "1.0.0.2"
 !define BUILD_FOLDER "Builds"
