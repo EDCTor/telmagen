@@ -6,7 +6,7 @@
 ## 
 ## Built-time define's supported:
 ##      SOURCE    		Required    Value: Path to the source i.e. "c:\Source\TELMAGEN"
-##      FILENAME        Required    Value: Name of the AIMS Setup program i.e. "Setup.exe"
+##      FILENAME        Required    Value: Name of the Setup program i.e. "Setup.exe"
 ##										   be sure this directory actually exists before NSIS runs
 ##      VERSION         Required    Value: TELMAGEN Build Version i.e. "1.0.0.0"
 ##      BUILD_FOLDER    Required    Value: Subdir within SOURCE for resulting setup.exe i.e. "Builds"
@@ -17,8 +17,8 @@
 ## 
 ## TESTING
 ##
-## To test NSIS installer, you can manually set some of the values that the build script bat does for you
-##  Just uncomment the lines below and set as needed
+## To test NSIS installer, you can manually set some of the values that the build script 
+## bat does for you. Just uncomment the lines below and set as needed.
 ##
 #########################################################################################
 !define SOURCE "D:\gigator\TELMAGEN\TELMAGEN"
@@ -283,7 +283,7 @@ Section "-Common Components" SEC_COMMON
     DetailPrint "Creating Folder Structure"
     CreateDirectory "$INSTDIR\Projects"
 
-	# Set file permissions to give everyone full access to the AIMS directory (to ensure future updates are 100% successful)
+	# Set file permissions to give everyone full access to the INSTALLDIR (to ensure future updates are 100% successful)
     DetailPrint "Setting File Permissions..."
     AccessControl::GrantOnFile $INSTDIR "Everyone" "FullAccess"
 SectionEnd
