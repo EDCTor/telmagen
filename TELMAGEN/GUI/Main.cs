@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using TELMAGEN.IO;
 using TELMAGEN.GUI;
+using TELMAGEN.Library;
 
 namespace TELMAGEN
 {
@@ -29,10 +30,6 @@ namespace TELMAGEN
             // reset the GUI to defaults
             if (this.project == null)
             {
-                //using (Bitmap b = new Bitmap(TELMAGEN.Properties.Resources.telmagen_splash))
-                //{
-                //    pbcanvas.Image = b;
-                //}
                 pbcanvas.Image = new Bitmap(TELMAGEN.Properties.Resources.telmagen_splash);
 
                 lblTime.Text = "00:00";
@@ -60,10 +57,9 @@ namespace TELMAGEN
 
                 // plot the saved points
                 PlotPoints(ttime.TPoints);
-
-                // plot any uncommitted points
-                //PlotPoints(this.uncommitted_points.ToArray());
             }
+
+            RefreshLabels();
         }
         private void PlotPoints(TPoint[] tpoints)
         {
@@ -98,7 +94,25 @@ namespace TELMAGEN
             }
 
         }
+        private void RefreshLabels()
+        {
+            if (this.project == null) { return; }
+            if (this.project.Labels == null) { return; }
 
+            if (!string.IsNullOrEmpty(this.project.Labels.red)) { lblRed.Text = this.project.Labels.red; }
+            if (!string.IsNullOrEmpty(this.project.Labels.blue)) { lblBlue.Text = this.project.Labels.blue; }
+            if (!string.IsNullOrEmpty(this.project.Labels.yellow)) { lblYellow.Text = this.project.Labels.yellow; }
+            if (!string.IsNullOrEmpty(this.project.Labels.green)) { lblGreen.Text = this.project.Labels.green; }
+            if (!string.IsNullOrEmpty(this.project.Labels.pink)) { lblPink.Text = this.project.Labels.pink; }
+            if (!string.IsNullOrEmpty(this.project.Labels.purple)) { lblPurple.Text = this.project.Labels.purple; }
+            if (!string.IsNullOrEmpty(this.project.Labels.orange)) { lblOrange.Text = this.project.Labels.orange; }
+            if (!string.IsNullOrEmpty(this.project.Labels.ltblue)) { lblLtBlue.Text = this.project.Labels.ltblue; }
+            if (!string.IsNullOrEmpty(this.project.Labels.ltgreen)) { lblLtGreen.Text = this.project.Labels.ltgreen; }
+            if (!string.IsNullOrEmpty(this.project.Labels.ltpink)) { lblLtPink.Text = this.project.Labels.ltpink; }
+            if (!string.IsNullOrEmpty(this.project.Labels.grey)) { lblGrey.Text = this.project.Labels.grey; }
+            if (!string.IsNullOrEmpty(this.project.Labels.white)) { lblWhite.Text = this.project.Labels.white; }
+            if (!string.IsNullOrEmpty(this.project.Labels.black)) { lblBlack.Text = this.project.Labels.black; }
+        }
         private TColor GetSelectedTColor()
         {
             if (rbBlue.Checked)
@@ -133,6 +147,26 @@ namespace TELMAGEN
             {
                 return TColor.BABYBLUE;
             }
+            else if (rbLtPink.Checked)
+            {
+                return TColor.LTPINK;
+            }
+            else if (rbLtGreen.Checked)
+            {
+                return TColor.LTGREEN;
+            }
+            else if (rbGrey.Checked)
+            {
+                return TColor.GREY;
+            }
+            else if (rbWhite.Checked)
+            {
+                return TColor.WHITE;
+            }
+            else if (rbBlack.Checked)
+            {
+                return TColor.BLACK;
+            }
             else
             {
                 throw new InvalidOperationException("Color not selected in toolbox");
@@ -146,7 +180,23 @@ namespace TELMAGEN
               (int)Math.Min(255, inColor.G + 255 * inAmount),
               (int)Math.Min(255, inColor.B + 255 * inAmount));
         }
-
+        private bool ProcessKeyDown(Keys key_code)
+        {
+            switch (key_code)
+            {
+                case Keys.Left:
+                    {
+                        btnBack_Click(null, null);
+                        return true;
+                    }
+                case Keys.Right:
+                    {
+                        btnNext_Click(null, null);
+                        return true;
+                    }
+            }
+            return false;
+        }
         #region event handlers
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -159,6 +209,7 @@ namespace TELMAGEN
                         string name = form.ProjectName;
                         int interval = form.Interval;
                         string full_image_name = form.ImageName;
+                        ColorLabel labels = form.ColorLabel;
 
                         //get a project folder name
                         string folder_name = DataHelpers.FilterStringForFileName(name);
@@ -178,7 +229,7 @@ namespace TELMAGEN
                         }
 
                         // create the new project object
-                        this.project = new TelmagenProject(name, interval, full_image_name);
+                        this.project = new TelmagenProject(name, interval, full_image_name, labels);
                         // init this form to what we are looking at (the first ttime)
                         this.shown_ttime = this.project.GetFirstTTime();
 
@@ -287,8 +338,6 @@ namespace TELMAGEN
                     this.shown_ttime = p.GetFirstTTime();
 
                     RefreshCanvas();
-
-                    MessageBox.Show("Project successfully opened");
                 }
             }
             catch (Exception ex)
@@ -322,6 +371,21 @@ namespace TELMAGEN
             if (shown_ttime <= 1) { return; }
 
             this.shown_ttime -= 1;
+
+            RefreshCanvas();
+        }
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            if (this.project == null) { return; }
+            this.shown_ttime = 1;
+            RefreshCanvas();
+        }
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            if (this.project == null) { return; }
+
+            int max_ttime = this.project.GetLastTTime();
+            this.shown_ttime = max_ttime;
 
             RefreshCanvas();
         }
@@ -418,8 +482,58 @@ namespace TELMAGEN
                 }
             }
         }
+        private void btnSetLabels_Click(object sender, EventArgs e)
+        {
+            if (this.project == null) { return; }
+            if (this.project.Labels == null) { return; }
+
+            using (SetLabels form = new SetLabels())
+            {
+                form.ColorLabel = this.project.Labels;
+
+                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    ColorLabel c = form.ColorLabel;
+                    this.project.Labels = c;
+                    RefreshLabels();
+                }
+            }
+        }
+        private void Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = ProcessKeyDown(e.KeyCode);
+        }
+        private void bt_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                case Keys.Right:
+                    e.IsInputKey = true;
+                    break;
+            }
+        }
+        private void rb_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                case Keys.Right:
+                    e.IsInputKey = true;
+                    break;
+            }
+        }
         #endregion
 
-        
+        private void rb_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = ProcessKeyDown(e.KeyCode);
+        }
+
+        private void btn_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = ProcessKeyDown(e.KeyCode);
+        }
+
     }
 }

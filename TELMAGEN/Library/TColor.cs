@@ -14,11 +14,14 @@ namespace TELMAGEN
         [EnumDescription("Blue")]
         [ColorCode(0,0,255)]
         BLUE,
+        [EnumDescription("Baby Blue")]
+        [ColorCode(0, 255, 255)]
+        BABYBLUE,
         [EnumDescription("Green")]
         [ColorCode(0,255,0)]
         GREEN,
         [EnumDescription("Yellow")]
-        [ColorCode(255, 255, 0)]
+        [ColorCode(255, 216, 0)]
         YELLOW,
         [EnumDescription("Orange")]
         [ColorCode(255, 142, 0)]
@@ -26,12 +29,26 @@ namespace TELMAGEN
         [EnumDescription("Pink")]
         [ColorCode(255, 0, 255)]
         PINK,
-        [EnumDescription("Baby Blue")]
-        [ColorCode(0, 255, 255)]
-        BABYBLUE,
         [EnumDescription("Purple")]
         [ColorCode(162, 0, 255)]
         PURPLE,
+
+        [EnumDescription("Grey")]
+        [ColorCode(160, 160, 160)]
+        GREY,
+        [EnumDescription("Lt. Green")]
+        [ColorCode(182, 255, 0)]
+        LTGREEN,
+        [EnumDescription("Lt. Pink")]
+        [ColorCode(255, 127, 182)]
+        LTPINK,
+        [EnumDescription("White")]
+        [ColorCode(255, 255, 255)]
+        WHITE,
+        [EnumDescription("Black")]
+        [ColorCode(0, 0, 0)]
+        BLACK,
+
     }
 
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
