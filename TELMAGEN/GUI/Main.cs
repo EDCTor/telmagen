@@ -449,6 +449,7 @@ namespace TELMAGEN
                 {
                     form.Project = this.project;
                     form.Text = "Slideshow " + this.project.Name;
+                    form.RefreshLabels();
 
                     if (form.ShowDialog() == DialogResult.OK)
                     {
@@ -523,17 +524,14 @@ namespace TELMAGEN
                     break;
             }
         }
-        #endregion
-
         private void rb_KeyDown(object sender, KeyEventArgs e)
         {
             e.Handled = ProcessKeyDown(e.KeyCode);
         }
-
         private void btn_KeyDown(object sender, KeyEventArgs e)
         {
             e.Handled = ProcessKeyDown(e.KeyCode);
         }
-
+        #endregion
     }
 }

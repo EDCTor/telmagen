@@ -78,6 +78,25 @@ namespace TELMAGEN.GUI
                 //PlotPoints(this.uncommitted_points.ToArray());
             }
         }
+        public void RefreshLabels()
+        {
+            if (this.project == null) { return; }
+            if (this.project.Labels == null) { return; }
+
+            if (!string.IsNullOrEmpty(this.project.Labels.red)) { lblRed.Text = this.project.Labels.red; }
+            if (!string.IsNullOrEmpty(this.project.Labels.blue)) { lblBlue.Text = this.project.Labels.blue; }
+            if (!string.IsNullOrEmpty(this.project.Labels.yellow)) { lblYellow.Text = this.project.Labels.yellow; }
+            if (!string.IsNullOrEmpty(this.project.Labels.green)) { lblGreen.Text = this.project.Labels.green; }
+            if (!string.IsNullOrEmpty(this.project.Labels.pink)) { lblPink.Text = this.project.Labels.pink; }
+            if (!string.IsNullOrEmpty(this.project.Labels.purple)) { lblPurple.Text = this.project.Labels.purple; }
+            if (!string.IsNullOrEmpty(this.project.Labels.orange)) { lblOrange.Text = this.project.Labels.orange; }
+            if (!string.IsNullOrEmpty(this.project.Labels.ltblue)) { lblLtBlue.Text = this.project.Labels.ltblue; }
+            if (!string.IsNullOrEmpty(this.project.Labels.ltgreen)) { lblLtGreen.Text = this.project.Labels.ltgreen; }
+            if (!string.IsNullOrEmpty(this.project.Labels.ltpink)) { lblLtPink.Text = this.project.Labels.ltpink; }
+            if (!string.IsNullOrEmpty(this.project.Labels.grey)) { lblGrey.Text = this.project.Labels.grey; }
+            if (!string.IsNullOrEmpty(this.project.Labels.white)) { lblWhite.Text = this.project.Labels.white; }
+            if (!string.IsNullOrEmpty(this.project.Labels.black)) { lblBlack.Text = this.project.Labels.black; }
+        }
         private void PlotPoints(TPoint[] tpoints)
         {
             // abort if we dont have valid input
@@ -110,6 +129,23 @@ namespace TELMAGEN.GUI
                 pbcanvas.Image = this.working_bm;
             }
 
+        }
+        private bool ProcessKeyDown(Keys key_code)
+        {
+            switch (key_code)
+            {
+                case Keys.Left:
+                    {
+                        btnPrevious_Click(null, null);
+                        return true;
+                    }
+                case Keys.Right:
+                    {
+                        btnNext_Click(null, null);
+                        return true;
+                    }
+            }
+            return false;
         }
 
         private void btnPlayPause_Click(object sender, EventArgs e)
@@ -200,6 +236,24 @@ namespace TELMAGEN.GUI
                 this.shown_ttime += 1;
                 RefreshCanvas();
             }
+        }
+        private void Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = ProcessKeyDown(e.KeyCode);
+        }
+        private void bt_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                case Keys.Right:
+                    e.IsInputKey = true;
+                    break;
+            }
+        }
+        private void btn_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = ProcessKeyDown(e.KeyCode);
         }
     }
 }
