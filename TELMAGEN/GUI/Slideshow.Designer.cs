@@ -130,7 +130,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(714, 526);
+            this.btnClose.Location = new System.Drawing.Point(724, 526);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 5;
@@ -148,7 +148,7 @@
             this.pbcanvas.Image = global::TELMAGEN.Properties.Resources.telmagen_splash;
             this.pbcanvas.Location = new System.Drawing.Point(0, 0);
             this.pbcanvas.Name = "pbcanvas";
-            this.pbcanvas.Size = new System.Drawing.Size(704, 520);
+            this.pbcanvas.Size = new System.Drawing.Size(686, 520);
             this.pbcanvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbcanvas.TabIndex = 0;
             this.pbcanvas.TabStop = false;
@@ -157,7 +157,7 @@
             // 
             this.lblPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(652, 531);
+            this.lblPosition.Location = new System.Drawing.Point(663, 531);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(34, 13);
             this.lblPosition.TabIndex = 8;
@@ -167,7 +167,7 @@
             // 
             this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(599, 531);
+            this.lblTime.Location = new System.Drawing.Point(610, 531);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(34, 13);
             this.lblTime.TabIndex = 7;
@@ -194,9 +194,9 @@
             this.grpColors.Controls.Add(this.lblYellow);
             this.grpColors.Controls.Add(this.lblRed);
             this.grpColors.Controls.Add(this.lblBlue);
-            this.grpColors.Location = new System.Drawing.Point(705, 0);
+            this.grpColors.Location = new System.Drawing.Point(692, 0);
             this.grpColors.Name = "grpColors";
-            this.grpColors.Size = new System.Drawing.Size(94, 193);
+            this.grpColors.Size = new System.Drawing.Size(107, 193);
             this.grpColors.TabIndex = 9;
             this.grpColors.TabStop = false;
             this.grpColors.Text = "Labels";

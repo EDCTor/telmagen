@@ -25,6 +25,7 @@ namespace TELMAGEN
             InitializeComponent();
         }
 
+        #region private helper methods
         private void RefreshCanvas()
         {
             // reset the GUI to defaults
@@ -46,7 +47,7 @@ namespace TELMAGEN
             // if we have a current ttime lets refresh its values into the GUI
             if (this.shown_ttime > 0)
             {
-                // draw the time of day label
+                // get the ttime object and draw the time of day label
                 TTime ttime = this.project.GetTTime(this.shown_ttime);
                 lblTime.Text = ttime.ToString();
 
@@ -57,9 +58,73 @@ namespace TELMAGEN
 
                 // plot the saved points
                 PlotPoints(ttime.TPoints);
+                // list all the points
+                ListPoints(ttime.TPoints);
             }
 
             RefreshLabels();
+        }
+        //private void DrawSunMoon(int hour)
+        //{
+        //    // clear the last image if there was one
+        //    if (this.sun_moon_bm != null) { this.sun_moon_bm.Dispose(); }
+
+        //    // sun moon graphic is oriented so that the sun is on the left and the moon is on the right
+        //    this.sun_moon_bm = new Bitmap(TELMAGEN.Properties.Resources.sun_moon);
+
+        //    int angle = 90;
+
+        //    // rotate the graphic
+        //    //make a graphics object from the empty bitmap
+        //    using (Graphics g = Graphics.FromImage(sun_moon_bm))
+        //    {
+        //        //move rotation point to center of image
+        //        g.TranslateTransform((float)sun_moon_bm.Width / 2, (float)sm.Height / 2);
+        //        //rotate
+        //        g.RotateTransform(angle);
+        //        //move image back
+        //        g.TranslateTransform(-(float)sun_moon_bm.Width / 2, -(float)sm.Height / 2);
+        //        //draw passed in image onto graphics object
+        //        g.DrawImage(this.sun_moon_bm, new Point(0, 0));
+
+
+
+        //        // take the top half of the image
+        //        System.Drawing.Imaging.BitmapData half = this.sun_moon_bm.LockBits(
+        //            new Rectangle(0, 0, sun_moon_bm.Width, sun_moon_bm.Height / 2),
+        //            System.Drawing.Imaging.ImageLockMode.ReadOnly,
+        //            this.sun_moon_bm.PixelFormat);
+
+        //        // copy the partial image
+        //        Bitmap h = new Bitmap(half.Width, half.Height, half.Stride, half.PixelFormat, half.Scan0);
+
+        //        // unlock area
+        //        sun_moon_bm.UnlockBits(half);
+
+                
+
+                
+        //        pbSunMoon.Image = this.sun_moon_bm;
+        //    }
+
+           
+        //    // take the top half of it
+
+        //    // assign to the paintbox
+
+        //}
+        private void ListPoints(TPoint[] tpoints)
+        {
+            if (tpoints == null) { return; }
+            
+            // clear any existing points
+            lstPoints.Items.Clear();
+
+            foreach(TPoint p in tpoints)
+            {
+                lstPoints.Items.Add(p);
+            }
+
         }
         private void PlotPoints(TPoint[] tpoints)
         {
@@ -172,14 +237,6 @@ namespace TELMAGEN
                 throw new InvalidOperationException("Color not selected in toolbox");
             }
         }
-        public Color Lighten(Color inColor, double inAmount)
-        {
-            return Color.FromArgb(
-              inColor.A,
-              (int)Math.Min(255, inColor.R + 255 * inAmount),
-              (int)Math.Min(255, inColor.G + 255 * inAmount),
-              (int)Math.Min(255, inColor.B + 255 * inAmount));
-        }
         private bool ProcessKeyDown(Keys key_code)
         {
             switch (key_code)
@@ -197,6 +254,7 @@ namespace TELMAGEN
             }
             return false;
         }
+        #endregion
         #region event handlers
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -359,7 +417,7 @@ namespace TELMAGEN
             if (this.project == null) { return; }
 
             int max_ttime = this.project.GetLastTTime();
-            if (shown_ttime >= max_ttime) { return; }
+            if (shown_ttime >= max_ttime) { shown_ttime = 0; }
 
             this.shown_ttime += 1;
 
@@ -368,9 +426,14 @@ namespace TELMAGEN
         private void btnBack_Click(object sender, EventArgs e)
         {
             if (this.project == null) { return; }
-            if (shown_ttime <= 1) { return; }
-
-            this.shown_ttime -= 1;
+            if (this.shown_ttime <= 1)
+            {
+                this.shown_ttime = this.project.GetLastTTime();
+            }
+            else
+            {
+                this.shown_ttime -= 1;
+            }
 
             RefreshCanvas();
         }
@@ -424,10 +487,14 @@ namespace TELMAGEN
             if (this.project == null) { return; }
             if (this.shown_ttime <= 0) { return; }
 
-            TTime t = this.project.GetTTime(this.shown_ttime);
-            t.TPoints = null;
+            if (MessageBox.Show("Delete all points in this time?", "Confirm Clear Points", MessageBoxButtons.YesNo) == 
+                System.Windows.Forms.DialogResult.Yes)
+            {
+                TTime t = this.project.GetTTime(this.shown_ttime);
+                t.TPoints = null;
 
-            RefreshCanvas();
+                RefreshCanvas();
+            }
         }
         private void slideshowToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -532,6 +599,88 @@ namespace TELMAGEN
         {
             e.Handled = ProcessKeyDown(e.KeyCode);
         }
+        private void Main_MouseDown(object sender, MouseEventArgs e)
+        {
+            
+            //System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
+            //System.Drawing.Graphics formGraphics = this.CreateGraphics();
+            //formGraphics.FillRectangle(myBrush, new Rectangle(e.X, e.Y, 20, 20));
+            //myBrush.Dispose();
+            //formGraphics.Dispose();
+        }
+        private void lstPoints_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstPoints.SelectedItem is TPoint)
+            {
+                TPoint tpoint = (TPoint)lstPoints.SelectedItem;
+
+                // if invalid input then exit
+                if (tpoint == null) { return; }
+                if (this.project == null) { return; }
+
+                // redraw the base image
+                if (this.project.Image != null) { pbcanvas.Image = this.project.Image; }
+
+                // plot all the data points for the current time
+                if (this.shown_ttime > 0)
+                {
+                    // get the ttime object
+                    TTime ttime = this.project.GetTTime(this.shown_ttime);
+                   
+                    // plot the saved points
+                    PlotPoints(ttime.TPoints);
+                }
+
+                // mark the selected point
+                using (Graphics g = Graphics.FromImage(this.working_bm))
+                {
+                    SolidBrush b = ColorCodeAttribute.GetBrush(tpoint.TColor);
+                    int coorx = tpoint.x;
+                    int coory = tpoint.y;
+
+                    if (coorx > 20) { coorx = coorx - 10; }
+                    if (coory > 20) { coory = coory - 10; }
+
+                    g.FillEllipse(b, coorx, coory, 30, 30);
+
+                    // if (pbcanvas.Image != null) { pbcanvas.Image.Dispose(); }
+                    pbcanvas.Image = this.working_bm;
+                }
+
+            }
+        }
+        private void lstPoints_DoubleClick(object sender, EventArgs e)
+        {
+            if (lstPoints.SelectedItem is TPoint)
+            {
+                int i = lstPoints.SelectedIndex;
+
+                TPoint tpoint = (TPoint)lstPoints.SelectedItem;
+
+                // if invalid input then exit
+                if (tpoint == null) { return; }
+                if (this.project == null) { return; }
+                if (this.shown_ttime <= 0) { return; }
+
+                // get the current ttime
+                TTime ttime = this.project.GetTTime(this.shown_ttime);
+
+                // remove the point from our project
+                ttime.RemoveTPoint(tpoint.ID);
+
+                // redraw the base image
+                if (this.project.Image != null) { pbcanvas.Image = this.project.Image; }
+
+                // plot all the data points for the current time
+                PlotPoints(ttime.TPoints);
+
+                // remove this item from the list box
+                lstPoints.Items.RemoveAt(i);
+            }
+        }
+
         #endregion
+
+        
     }
 }

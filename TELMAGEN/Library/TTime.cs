@@ -50,6 +50,10 @@ namespace TELMAGEN
 
             this.tpoints.Add(tpoint);
         }
+        public void RemoveTPoint(int id)
+        {
+            this.tpoints.RemoveAll(s => s.ID == id);
+        }
         public TPoint[] TPoints
         {
             get { return this.tpoints.ToArray(); }
