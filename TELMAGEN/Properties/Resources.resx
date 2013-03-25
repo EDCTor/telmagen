@@ -128,7 +128,7 @@
   <data name="telmagen_splash" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA1oAAAHzCAIAAAC2TPvGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAABNYUlEQVR4Xu3d
+        vgAADr4B6kKxwAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAABNYUlEQVR4Xu3d
         C7RdVZ3n+5MHxBCSnENEIpLwCAUSngXRBkpEkJKHQyXFlRRSVEFRXEFFfNCRTlSMgkR8AOXFBgsaxeqi
         IFTraBMxo3OL5KbEcStIU9CWggaxHd3c0SMJZd3BffW9I/e39n/umZk5915r7ec5Z8/vZ8yRsdfa6znX
         2mv+Mtde+4ztBQAAQMaIgwAAAFkjDgIAAGSNOAgAAJA14iAAAEDWiIMAAABZIw4CAABkjTgIAACQNeIg
@@ -461,5 +461,8 @@
         EQcBAACyRhwEAADIGnEQAAAga8RBAACArBEHAQAAskYcBAAAyBpxEAAAIGvEQQAAgKwRBwEAADK2d+//
         D+BMlZLeM9whAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="sun" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sun.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
