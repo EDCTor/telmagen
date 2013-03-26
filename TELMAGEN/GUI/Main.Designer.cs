@@ -522,7 +522,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(177, 526);
+            this.btnNext.Location = new System.Drawing.Point(177, 527);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(62, 23);
             this.btnNext.TabIndex = 16;
@@ -549,7 +549,7 @@
             // 
             this.lblPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(676, 531);
+            this.lblPosition.Location = new System.Drawing.Point(676, 532);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(34, 13);
             this.lblPosition.TabIndex = 6;
@@ -558,7 +558,7 @@
             // btnClearPoints
             // 
             this.btnClearPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClearPoints.Location = new System.Drawing.Point(731, 525);
+            this.btnClearPoints.Location = new System.Drawing.Point(731, 527);
             this.btnClearPoints.Name = "btnClearPoints";
             this.btnClearPoints.Size = new System.Drawing.Size(76, 26);
             this.btnClearPoints.TabIndex = 18;

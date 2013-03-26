@@ -591,10 +591,8 @@ namespace TELMAGEN
                     form.Text = "Slideshow " + this.project.Name;
                     form.RefreshLabels();
 
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-                        //
-                    }
+                    form.ShowDialog();
+                    form.DisposeBitmaps(); // reclaim any memory taken by the bitmaps
                 }
             }
             catch (Exception ex)

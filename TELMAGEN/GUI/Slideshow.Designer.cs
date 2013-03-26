@@ -54,8 +54,10 @@
             this.lblYellow = new System.Windows.Forms.Label();
             this.lblRed = new System.Windows.Forms.Label();
             this.lblBlue = new System.Windows.Forms.Label();
+            this.pbSunMoon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbcanvas)).BeginInit();
             this.grpColors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSunMoon)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPrevious
@@ -335,11 +337,23 @@
             this.lblBlue.TabIndex = 0;
             this.lblBlue.Text = "Blue";
             // 
+            // pbSunMoon
+            // 
+            this.pbSunMoon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbSunMoon.Image = global::TELMAGEN.Properties.Resources.sun;
+            this.pbSunMoon.Location = new System.Drawing.Point(689, 465);
+            this.pbSunMoon.Name = "pbSunMoon";
+            this.pbSunMoon.Size = new System.Drawing.Size(110, 55);
+            this.pbSunMoon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSunMoon.TabIndex = 21;
+            this.pbSunMoon.TabStop = false;
+            // 
             // Slideshow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 553);
+            this.Controls.Add(this.pbSunMoon);
             this.Controls.Add(this.grpColors);
             this.Controls.Add(this.lblPosition);
             this.Controls.Add(this.lblTime);
@@ -358,6 +372,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbcanvas)).EndInit();
             this.grpColors.ResumeLayout(false);
             this.grpColors.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSunMoon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,5 +404,6 @@
         private System.Windows.Forms.Label lblYellow;
         private System.Windows.Forms.Label lblRed;
         private System.Windows.Forms.Label lblBlue;
+        private System.Windows.Forms.PictureBox pbSunMoon;
     }
 }
