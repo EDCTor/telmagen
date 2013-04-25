@@ -158,7 +158,7 @@
             // slideshowToolStripMenuItem
             // 
             this.slideshowToolStripMenuItem.Name = "slideshowToolStripMenuItem";
-            this.slideshowToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.slideshowToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.slideshowToolStripMenuItem.Text = "&Slideshow";
             this.slideshowToolStripMenuItem.Click += new System.EventHandler(this.slideshowToolStripMenuItem_Click);
             // 
@@ -665,7 +665,6 @@
             this.Name = "Main";
             this.Text = "TELMAGEN";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.grpColors.ResumeLayout(false);

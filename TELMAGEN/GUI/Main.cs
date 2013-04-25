@@ -535,6 +535,13 @@ namespace TELMAGEN
         }
         private void pbcanvas_MouseUp(object sender, MouseEventArgs e)
         {
+            bool multi_points = false;
+            if (Form.ModifierKeys == Keys.Control)
+            {
+                // Do Ctrl-Left Click Work
+                multi_points = true;
+            }
+
             if (this.project == null) { return; }
 
             int xcoor = e.X;
@@ -551,6 +558,15 @@ namespace TELMAGEN
             TTime t = this.project.GetTTime(this.shown_ttime);
             // add the new point
             t.AddTPoint(xcoor, ycoor, c);
+
+            // if we are multi plotting (ctrl-click)
+            if (multi_points)
+            {
+                t.AddTPoint(xcoor - 10, ycoor - 10, c);
+                t.AddTPoint(xcoor - 10, ycoor + 10, c);
+                t.AddTPoint(xcoor + 10, ycoor - 10, c);
+                t.AddTPoint(xcoor + 10, ycoor + 10, c);
+            }
 
             // refresh the GUI
             RefreshCanvas();
@@ -669,15 +685,6 @@ namespace TELMAGEN
         private void btn_KeyDown(object sender, KeyEventArgs e)
         {
             e.Handled = ProcessKeyDown(e.KeyCode);
-        }
-        private void Main_MouseDown(object sender, MouseEventArgs e)
-        {
-            
-            //System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
-            //System.Drawing.Graphics formGraphics = this.CreateGraphics();
-            //formGraphics.FillRectangle(myBrush, new Rectangle(e.X, e.Y, 20, 20));
-            //myBrush.Dispose();
-            //formGraphics.Dispose();
         }
         private void lstPoints_SelectedIndexChanged(object sender, EventArgs e)
         {
