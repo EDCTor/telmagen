@@ -25,5 +25,10 @@ namespace TELMAGEN
             get { return this.id; }
             set { this.id = value; }
         }
+
+        public override string ToString()
+        {
+            return x.ToString() + "," + y.ToString() + " (" + this.TColor.ToString() + ")";
+        }
     }
 }

@@ -64,7 +64,6 @@ namespace TELMAGEN
 
             return attributes[0].Color;  // Possible IndexOutOfRangeException expected
         }
-
         public static SolidBrush GetBrush(Enum value)
         {
             FieldInfo fi = value.GetType().GetField(value.ToString());
@@ -75,7 +74,16 @@ namespace TELMAGEN
 
             return attributes[0].Brush;  // Possible IndexOutOfRangeException expected
         }
+        public static Pen GetPen(Enum value)
+        {
+            FieldInfo fi = value.GetType().GetField(value.ToString());
 
+            ColorCodeAttribute[] attributes =
+                (ColorCodeAttribute[])fi.GetCustomAttributes(
+                    typeof(ColorCodeAttribute), false);
+
+            return attributes[0].Pen;  // Possible IndexOutOfRangeException expected
+        }
         int r = 0;
         int g = 0;
         int b = 0;
@@ -99,6 +107,14 @@ namespace TELMAGEN
             get
             {
                 return new SolidBrush(Color.FromArgb(this.r, this.g, this.b));
+            }
+        }
+        public Pen Pen
+        {
+            get
+            {
+                Color c = Color.FromArgb(this.r, this.g, this.b);
+                return new Pen(c);
             }
         }
     }

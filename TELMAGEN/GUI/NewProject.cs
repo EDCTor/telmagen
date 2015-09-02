@@ -58,7 +58,7 @@ namespace TELMAGEN.GUI
                 c.purple = txtPurple.Text;
                 c.orange = txtOrange.Text;
                 c.ltblue = txtLtBlue.Text;
-                c.ltgreen = txtGreen.Text;
+                c.ltgreen = txtLtGreen.Text;
                 c.ltpink = txtLtPink.Text;
                 c.grey = txtGrey.Text;
                 c.white = txtWhite.Text;
@@ -97,12 +97,6 @@ namespace TELMAGEN.GUI
                 return;
             }
             #endregion
-
-            //// copy the selected file to a temp file, in case it has a file lock on it
-            //FilePath temp = FilePaths.TempFile;
-            //System.IO.FileInfo imagefile = new System.IO.FileInfo(txtImageName.Text);
-            //imagefile.CopyTo(temp.FullName);
-            //txtImageName.Text = imagefile.FullName;
 
             DialogResult = DialogResult.OK;
             this.Close();

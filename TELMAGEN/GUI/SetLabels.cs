@@ -31,7 +31,7 @@ namespace TELMAGEN.GUI
                 c.purple = txtPurple.Text;
                 c.orange = txtOrange.Text;
                 c.ltblue = txtLtBlue.Text;
-                c.ltgreen = txtGreen.Text;
+                c.ltgreen = txtLtGreen.Text;
                 c.ltpink = txtLtPink.Text;
                 c.grey = txtGrey.Text;
                 c.white = txtWhite.Text;
@@ -51,7 +51,7 @@ namespace TELMAGEN.GUI
                     txtPurple.Text = value.purple;
                     txtOrange.Text = value.orange;
                     txtLtBlue.Text = value.ltblue;
-                    txtGreen.Text = value.ltgreen;
+                    txtLtGreen.Text = value.ltgreen;
                     txtLtPink.Text = value.ltpink;
                     txtGrey.Text = value.grey;
                     txtWhite.Text = value.white;

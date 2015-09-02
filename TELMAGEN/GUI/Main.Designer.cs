@@ -77,9 +77,14 @@
             this.pbcanvas = new System.Windows.Forms.PictureBox();
             this.btnFirst = new System.Windows.Forms.Button();
             this.btnLast = new System.Windows.Forms.Button();
+            this.grpPoints = new System.Windows.Forms.GroupBox();
+            this.lstPoints = new System.Windows.Forms.ListBox();
+            this.pbSunMoon = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.grpColors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbcanvas)).BeginInit();
+            this.grpPoints.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSunMoon)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -90,7 +95,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(788, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(811, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -153,7 +158,7 @@
             // slideshowToolStripMenuItem
             // 
             this.slideshowToolStripMenuItem.Name = "slideshowToolStripMenuItem";
-            this.slideshowToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.slideshowToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.slideshowToolStripMenuItem.Text = "&Slideshow";
             this.slideshowToolStripMenuItem.Click += new System.EventHandler(this.slideshowToolStripMenuItem_Click);
             // 
@@ -206,9 +211,9 @@
             this.grpColors.Controls.Add(this.lblYellow);
             this.grpColors.Controls.Add(this.lblRed);
             this.grpColors.Controls.Add(this.lblBlue);
-            this.grpColors.Location = new System.Drawing.Point(690, 27);
+            this.grpColors.Location = new System.Drawing.Point(691, 27);
             this.grpColors.Name = "grpColors";
-            this.grpColors.Size = new System.Drawing.Size(94, 218);
+            this.grpColors.Size = new System.Drawing.Size(116, 218);
             this.grpColors.TabIndex = 2;
             this.grpColors.TabStop = false;
             this.grpColors.Text = "Colors";
@@ -508,7 +513,7 @@
             // 
             this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(595, 500);
+            this.lblTime.Location = new System.Drawing.Point(624, 532);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(34, 13);
             this.lblTime.TabIndex = 3;
@@ -517,9 +522,9 @@
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(502, 495);
+            this.btnNext.Location = new System.Drawing.Point(177, 527);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(32, 23);
+            this.btnNext.Size = new System.Drawing.Size(62, 23);
             this.btnNext.TabIndex = 16;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -530,9 +535,9 @@
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.Location = new System.Drawing.Point(470, 495);
+            this.btnBack.Location = new System.Drawing.Point(109, 527);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(32, 23);
+            this.btnBack.Size = new System.Drawing.Size(62, 23);
             this.btnBack.TabIndex = 15;
             this.btnBack.Text = "<";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -544,7 +549,7 @@
             // 
             this.lblPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(665, 500);
+            this.lblPosition.Location = new System.Drawing.Point(676, 532);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(34, 13);
             this.lblPosition.TabIndex = 6;
@@ -553,9 +558,9 @@
             // btnClearPoints
             // 
             this.btnClearPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClearPoints.Location = new System.Drawing.Point(716, 494);
+            this.btnClearPoints.Location = new System.Drawing.Point(731, 527);
             this.btnClearPoints.Name = "btnClearPoints";
-            this.btnClearPoints.Size = new System.Drawing.Size(68, 26);
+            this.btnClearPoints.Size = new System.Drawing.Size(76, 26);
             this.btnClearPoints.TabIndex = 18;
             this.btnClearPoints.Text = "Clear";
             this.btnClearPoints.UseVisualStyleBackColor = true;
@@ -571,7 +576,7 @@
             this.pbcanvas.InitialImage = null;
             this.pbcanvas.Location = new System.Drawing.Point(0, 27);
             this.pbcanvas.Name = "pbcanvas";
-            this.pbcanvas.Size = new System.Drawing.Size(689, 461);
+            this.pbcanvas.Size = new System.Drawing.Size(685, 492);
             this.pbcanvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbcanvas.TabIndex = 1;
             this.pbcanvas.TabStop = false;
@@ -580,9 +585,9 @@
             // btnFirst
             // 
             this.btnFirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFirst.Location = new System.Drawing.Point(439, 495);
+            this.btnFirst.Location = new System.Drawing.Point(41, 527);
             this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(32, 23);
+            this.btnFirst.Size = new System.Drawing.Size(62, 23);
             this.btnFirst.TabIndex = 14;
             this.btnFirst.Text = "|<";
             this.btnFirst.UseVisualStyleBackColor = true;
@@ -593,9 +598,9 @@
             // btnLast
             // 
             this.btnLast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLast.Location = new System.Drawing.Point(533, 495);
+            this.btnLast.Location = new System.Drawing.Point(245, 527);
             this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(32, 23);
+            this.btnLast.Size = new System.Drawing.Size(62, 23);
             this.btnLast.TabIndex = 17;
             this.btnLast.Text = ">|";
             this.btnLast.UseVisualStyleBackColor = true;
@@ -603,11 +608,47 @@
             this.btnLast.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_KeyDown);
             this.btnLast.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.bt_PreviewKeyDown);
             // 
+            // grpPoints
+            // 
+            this.grpPoints.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpPoints.Controls.Add(this.lstPoints);
+            this.grpPoints.Location = new System.Drawing.Point(691, 245);
+            this.grpPoints.Name = "grpPoints";
+            this.grpPoints.Size = new System.Drawing.Size(116, 213);
+            this.grpPoints.TabIndex = 19;
+            this.grpPoints.TabStop = false;
+            this.grpPoints.Text = "Points";
+            // 
+            // lstPoints
+            // 
+            this.lstPoints.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstPoints.FormattingEnabled = true;
+            this.lstPoints.Location = new System.Drawing.Point(3, 16);
+            this.lstPoints.Name = "lstPoints";
+            this.lstPoints.Size = new System.Drawing.Size(110, 194);
+            this.lstPoints.TabIndex = 0;
+            this.lstPoints.SelectedIndexChanged += new System.EventHandler(this.lstPoints_SelectedIndexChanged);
+            this.lstPoints.DoubleClick += new System.EventHandler(this.lstPoints_DoubleClick);
+            // 
+            // pbSunMoon
+            // 
+            this.pbSunMoon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbSunMoon.Image = global::TELMAGEN.Properties.Resources.sun;
+            this.pbSunMoon.Location = new System.Drawing.Point(691, 464);
+            this.pbSunMoon.Name = "pbSunMoon";
+            this.pbSunMoon.Size = new System.Drawing.Size(110, 55);
+            this.pbSunMoon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSunMoon.TabIndex = 20;
+            this.pbSunMoon.TabStop = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 527);
+            this.ClientSize = new System.Drawing.Size(811, 558);
+            this.Controls.Add(this.pbSunMoon);
+            this.Controls.Add(this.grpPoints);
             this.Controls.Add(this.btnLast);
             this.Controls.Add(this.btnFirst);
             this.Controls.Add(this.btnClearPoints);
@@ -620,6 +661,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(798, 559);
             this.Name = "Main";
             this.Text = "TELMAGEN";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
@@ -628,6 +670,8 @@
             this.grpColors.ResumeLayout(false);
             this.grpColors.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbcanvas)).EndInit();
+            this.grpPoints.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSunMoon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -683,6 +727,9 @@
         private System.Windows.Forms.RadioButton rbLtGreen;
         private System.Windows.Forms.Label lblBlack;
         private System.Windows.Forms.Button btnSetLabels;
+        private System.Windows.Forms.GroupBox grpPoints;
+        private System.Windows.Forms.ListBox lstPoints;
+        private System.Windows.Forms.PictureBox pbSunMoon;
     }
 }
 

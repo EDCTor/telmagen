@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Drawing;
 using System.Text;
 
 namespace TELMAGEN
@@ -60,6 +60,18 @@ namespace TELMAGEN
             filename = filename.Replace("|", string.Empty);
 
             return filename;
+        }
+
+        /// <summary>
+        /// Take a color and make it lighter by a value between 0-1
+        /// </summary>
+        private static Color Lighten(Color inColor, double inAmount)
+        {
+            return Color.FromArgb(
+              inColor.A,
+              (int)Math.Min(255, inColor.R + 255 * inAmount),
+              (int)Math.Min(255, inColor.G + 255 * inAmount),
+              (int)Math.Min(255, inColor.B + 255 * inAmount));
         }
     }
 }
