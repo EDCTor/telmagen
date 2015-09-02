@@ -342,7 +342,7 @@ namespace TELMAGEN
                         string full_image_name = form.ImageName;
                         ColorLabel labels = form.ColorLabel;
 
-                        //get a project folder name
+                        //get a project folder name!
                         string folder_name = DataHelpers.FilterStringForFileName(name);
 
                         // create a folder for the project
