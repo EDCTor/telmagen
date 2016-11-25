@@ -1,0 +1,34 @@
+TELMAGEN 1.0.0.8
+
+New Feature: Hold down ctrl while plotting points to plot x5 at once
+
+TELMAGEN 1.0.0.7
+
+New Feature: Added sun and moon image that changes with the hour to the slideshow.
+Bug Fix: Button alignment on the main page.
+
+TELMAGEN 1.0.0.6
+
+New Feature: Added sun and moon image that changes with the hour
+
+TELMAGEN 1.0.0.5
+
+Bug Fix: light green text box label was not being set properly during new project creation
+
+TELMAGEN 1.0.0.4
+
+Feature Change: wrap the next previous for the main screen
+New Feature: Added a points control panel to show points for a given time, allow deletion of points
+Feature Change: Moved the buttons around on the main form for usability
+
+TELMAGEN 1.0.0.3
+
+New Feature: Displays labels on the slideshow view
+Bug Fix: Light Green label was not saving or displaying properly
+
+TELMAGEN 1.0.0.2
+
+New Feature: Allows for the labeling of colors, saves labels to the project file
+New Feature: Allows for left and right arrow keys to navigate through the frames
+
+TELMAGEN 1.0.0.1
